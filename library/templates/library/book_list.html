@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Библиотека</title>
+</head>
+<body>
+    <h1>Список книг</h1>
+    <a href="{% url 'add_book' %}">Добавить книгу</a>
+    <ul>
+    {% for book in books %}
+        <li>
+            <h3>{{ book.title }}</h3>
+            <p>Автор: {{ book.author }}</p>
+            <p>Дата публикации: {{ book.published_date }}</p>
+            {% if book.cover_url %}
+                <img src="{{ book.cover_url }}" alt="Обложка" height="100">
+            {% endif %}
+        </li>
+    {% endfor %}
+    </ul>
+</body>
+</html>
